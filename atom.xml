@@ -1,0 +1,31 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+  <title>indeex.ml</title>
+  <link href="https://imisslovelove.github.io/houngking/"/>
+  <link type="application/atom+xml" rel="self" href="https://imisslovelove.github.io/houngking/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>https://imisslovelove.github.io/houngking/</id>
+  <author>
+    <name>Houngking Hsi</name>
+    <email>imisslovelove@live.com</email>
+  </author>
+
+  {% for post in site.posts %}
+  <entry>
+    <id>{{ site.url }}{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="{{ site.url }}{{ post.url }}"/>
+    <title>{{ post.title | xml_escape }}</title>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>Houngking Hsi</name>
+      <uri>https://imisslovelove.github.io/houngking/</uri>
+    </author>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+ 
+</feed>
